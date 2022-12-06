@@ -1,6 +1,6 @@
 package com.jcardenas.exam.domain.model
 
-import com.jcardenas.exam.data.local.AvailableBooksEntity
+import com.jcardenas.exam.data.entity.AvailableBooksEntity
 import com.jcardenas.exam.data.model.AvailableBooksPayload
 
 data class AvailableBooks(

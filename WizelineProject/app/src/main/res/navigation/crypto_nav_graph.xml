@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/crypto_nav_graph"
+    app:startDestination="@id/cryptoListFragment">
+
+    <fragment
+        android:id="@+id/cryptoListFragment"
+        android:name="com.jcardenas.exam.presentation.ui.fragment.CryptoListFragment"
+        android:label="fragment_crypto_list"
+        tools:layout="@layout/fragment_crypto_list" >
+
+        <action
+            android:id="@+id/action_cryptoListFragment_to_cryptoDetailFragment"
+            app:destination="@id/cryptoDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cryptoDetailFragment"
+        android:name="com.jcardenas.exam.presentation.ui.fragment.CryptoDetailFragment"
+        android:label="fragment_crypto_detail"
+        tools:layout="@layout/fragment_crypto_detail" />
+</navigation>

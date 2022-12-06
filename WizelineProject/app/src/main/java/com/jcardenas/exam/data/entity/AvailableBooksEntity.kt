@@ -1,10 +1,14 @@
-package com.jcardenas.exam.data.local
+package com.jcardenas.exam.data.entity
 
 import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.Gson
 import com.jcardenas.exam.domain.model.AvailableBooks
 
+@Entity(tableName = "available_books")
 data class AvailableBooksEntity(
+    @PrimaryKey
     @ColumnInfo(name = "book") val book: String = "",
     @ColumnInfo(name = "minimum_amount") val minimum_amount: Double = 0.0,
     @ColumnInfo(name = "maximum_amount") val maximum_amount: Double = 0.0,

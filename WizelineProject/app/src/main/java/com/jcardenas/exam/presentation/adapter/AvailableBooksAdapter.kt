@@ -1,43 +1,50 @@
 package com.jcardenas.exam.presentation.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.jcardenas.exam.R
+import com.jcardenas.exam.core.getImageResource
+import com.jcardenas.exam.databinding.AdapterAvailableBooksBinding
 import com.jcardenas.exam.domain.model.AvailableBooks
 
 class AvailableBooksAdapter(
     private val list: List<AvailableBooks>,
-    private val mContext: Context
-) : RecyclerView.Adapter<AvailableBooksAdapter.AvailableBBooksViewHolder>() {
+    private val onClickListener: (AvailableBooks) -> Unit
+) : RecyclerView.Adapter<AvailableBooksAdapter.AvailableBooksViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AvailableBBooksViewHolder {
-        return AvailableBBooksViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AvailableBooksViewHolder {
+        return AvailableBooksViewHolder(
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.adapter_available_books, parent, false), mContext
+                .inflate(R.layout.adapter_available_books, parent, false)
         )
     }
 
-    override fun onBindViewHolder(holder: AvailableBBooksViewHolder, position: Int) {
-        holder.setInfo(list[position])
+    override fun onBindViewHolder(holder: AvailableBooksViewHolder, position: Int) {
+        holder.setInfo(list[position], onClickListener)
     }
 
     override fun getItemCount(): Int {
         return list.size
     }
 
-    class AvailableBBooksViewHolder(
-        view: View,
-        val mContext: Context
+    inner class AvailableBooksViewHolder(
+        view: View
     ) : RecyclerView.ViewHolder(view) {
 
-        private val txtTitle : TextView = itemView.findViewById(R.id.txt_title)
+        private val binding = AdapterAvailableBooksBinding.bind(view)
 
-        fun setInfo(info: AvailableBooks){
-            txtTitle.text = info.book
+        fun setInfo(info: AvailableBooks, onClickListener: (AvailableBooks) -> Unit) {
+            binding.txtTitle.text = info.book
+
+            binding.imIcon.setImageResource(
+                getImageResource(info.book)
+            )
+
+            binding.clClick.setOnClickListener {
+                onClickListener(info)
+            }
         }
     }
 }

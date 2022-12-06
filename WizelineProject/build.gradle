@@ -9,7 +9,8 @@ plugins {
 ext {
     hiltVersion = '2.42'
     roomVersion = '2.4.3'
-    okhttpVersion = '4.13.2'
+    okhttpVersion = '4.10.0'
+    navGraphVersion = '2.5.3'
     retrofitVersion = '2.9.0'
     coroutinesVersion = '1.6.1'
     viewModelLiveDataVersion = '2.5.1'

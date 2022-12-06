@@ -18,5 +18,5 @@ data class TickerPayload (
     val vwap: Double,
     val ask: Double,
     val bid: Double,
-    val created_at: Double
+    val created_at: String
 )

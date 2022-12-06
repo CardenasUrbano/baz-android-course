@@ -15,27 +15,10 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val cryptoViewModel: CryptoViewModel by viewModels()
-
-    private var availableBooksAdapter: AvailableBooksAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        cryptoViewModel.onCreate()
-
-        cryptoViewModel.availableBooks.observe(this) {
-            availableBooksAdapter = AvailableBooksAdapter(it, applicationContext)
-            binding.rvAvailableBooks.layoutManager = LinearLayoutManager(applicationContext)
-            binding.rvAvailableBooks.setHasFixedSize(true)
-            binding.rvAvailableBooks.adapter = availableBooksAdapter
-        }
-        cryptoViewModel.isLoading.observe(this, Observer {
-            binding.pbMain.isVisible = it
-        })
     }
-
-
 }

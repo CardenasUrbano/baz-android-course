@@ -5,18 +5,17 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.jcardenas.exam.data.entity.CryptoData
-import com.jcardenas.exam.data.model.AvailableBooksResponse
+import com.jcardenas.exam.data.entity.CryptoDataEntity
 
 @Dao
 interface CryptoDao {
-    @Query("SELECT * FROM cryptodata")
-    suspend fun getData(): CryptoData
+    /*@Query("SELECT * FROM cryptoDataEntity")
+    suspend fun getData(): CryptoDataEntity
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertCryptoData(cryptoData: CryptoData)
+    suspend fun insertCryptoData(cryptoData: CryptoDataEntity)
 
     @Delete
-    suspend fun deleteCryptoData(cryptoData: CryptoData)
+    suspend fun deleteCryptoData(cryptoData: CryptoDataEntity)*/
 
 }
